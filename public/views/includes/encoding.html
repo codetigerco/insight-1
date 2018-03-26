@@ -1,0 +1,12 @@
+<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+  {{encoding.encode}} <span class="caret"></span>
+</a>
+<ul class="dropdown-menu">
+  <li>
+  <a data-ng-click="setEncoding('Legacy')" data-ng-class="{active: encoding.encode == 'Legacy'}">Legacy</a>
+  </li>
+  <li>
+  <a data-ng-click="setEncoding('cashAddr')" data-ng-class="{active: encoding.encode == 'cashAddr'}">cashAddr</a>
+  </li> 
+</ul>
+

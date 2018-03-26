@@ -1,7 +1,5 @@
 'use strict';
 
-// var config = require('insight-config.json');
-
 module.exports = function(grunt) {
 
   //Load NPM tasks
@@ -12,27 +10,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-markdown');
   grunt.loadNpmTasks('grunt-macreload');
   grunt.loadNpmTasks('grunt-angular-gettext');
-  grunt.loadNpmTasks('grunt-replace');
 
   // Project Configuration
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    replace: {
-      dist: {
-        options: {
-          patterns: [
-            {
-              match: 'INSIGHT_API_PREFIX',
-              replacement: '<%= pkg.insightConfig.apiPrefix %>'
-            }
-          ],
-          usePrefix: false
-        },
-        files: [
-          {src: ['public/src/templates/api.js'], dest: 'public/src/js/services/api.js'}
-        ]
-      }
-    },
     concat: {
       options: {
         process: function(src, filepath) {
@@ -136,13 +117,13 @@ module.exports = function(grunt) {
   grunt.option('force', true);
 
   //Default task(s).
-  grunt.registerTask('default', ['replace', 'watch']);
+  grunt.registerTask('default', ['watch']);
 
   //Update .pot file
   grunt.registerTask('translate', ['nggettext_extract']);
 
   //Compile task (concat + minify)
-  grunt.registerTask('compile', ['replace', 'nggettext_compile', 'concat', 'uglify', 'cssmin']);
+  grunt.registerTask('compile', ['nggettext_compile', 'concat', 'uglify', 'cssmin']);
 
 
 };

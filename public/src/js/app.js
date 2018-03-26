@@ -1,7 +1,7 @@
 'use strict';
 
 var defaultLanguage = localStorage.getItem('insight-language') || 'en';
-var defaultCurrency = localStorage.getItem('insight-currency') || 'BTC';
+var defaultCurrency = localStorage.getItem('insight-currency') || 'BCH';
 
 angular.module('insight',[
   'ngAnimate',
@@ -15,7 +15,6 @@ angular.module('insight',[
   'angularMoment',
   'insight.system',
   'insight.socket',
-  'insight.api',
   'insight.blocks',
   'insight.transactions',
   'insight.address',
@@ -28,7 +27,6 @@ angular.module('insight',[
 
 angular.module('insight.system', []);
 angular.module('insight.socket', []);
-angular.module('insight.api', []);
 angular.module('insight.blocks', []);
 angular.module('insight.transactions', []);
 angular.module('insight.address', []);

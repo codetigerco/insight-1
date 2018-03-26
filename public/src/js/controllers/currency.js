@@ -20,15 +20,15 @@ angular.module('insight.currency').controller('CurrencyController',
 
         if (this.symbol === 'USD') {
           response = _roundFloat((value * this.factor), 2);
-        } else if (this.symbol === 'mBTC') {
+        } else if (this.symbol === 'mBCH') {
           this.factor = 1000;
           response = _roundFloat((value * this.factor), 5);
         } else if (this.symbol === 'bits') {
           this.factor = 1000000;
           response = _roundFloat((value * this.factor), 2);
-        } else { // assumes symbol is BTC
+        } else {
           this.factor = 1;
-          response = _roundFloat((value * this.factor), 8);
+          response = value;
         }
         // prevent sci notation
         if (response < 1e-7) response=response.toFixed(8);
@@ -47,7 +47,7 @@ angular.module('insight.currency').controller('CurrencyController',
         Currency.get({}, function(res) {
           $rootScope.currency.factor = $rootScope.currency.bitstamp = res.data.bitstamp;
         });
-      } else if (currency === 'mBTC') {
+      } else if (currency === 'mBCH') {
         $rootScope.currency.factor = 1000;
       } else if (currency === 'bits') {
         $rootScope.currency.factor = 1000000;

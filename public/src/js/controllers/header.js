@@ -2,12 +2,14 @@
 
 angular.module('insight.system').controller('HeaderController',
   function($scope, $rootScope, $modal, getSocket, Global, Block) {
+	$scope.defaultLanguage = defaultLanguage;
+	
     $scope.global = Global;
 
     $rootScope.currency = {
       factor: 1,
       bitstamp: 0,
-      symbol: 'BTC'
+      symbol: 'BCH'
     };
 
     $scope.menu = [{
@@ -44,4 +46,28 @@ angular.module('insight.system').controller('HeaderController',
     });
 
     $rootScope.isCollapsed = true;
+	
+	
+    $scope.availableLanguages = [{
+      name: 'Deutsch',
+      isoCode: 'de_DE',
+    }, {
+      name: 'English',
+      isoCode: 'en',
+    }, {
+      name: 'Spanish',
+      isoCode: 'es',
+    }, {
+      name: 'Japanese',
+      isoCode: 'ja',
+    }];
+
+    $scope.setLanguage = function(isoCode) {
+      gettextCatalog.currentLanguage = $scope.defaultLanguage = defaultLanguage = isoCode;
+      amMoment.changeLocale(isoCode);
+      localStorage.setItem('insight-language', isoCode);
+      var currentPageTemplate = $route.current.templateUrl;
+      $templateCache.remove(currentPageTemplate);
+      $route.reload();
+    };
   });

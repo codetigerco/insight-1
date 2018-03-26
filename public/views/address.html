@@ -3,11 +3,11 @@
   <div class="secondary_navbar hidden-xs hidden-sm" scroll data-ng-class="{'hidden': !secondaryNavbar}" data-ng-show="address.addrStr" data-ng-init="hideSNavbar=0">
     <div class="container" data-ng-if="!hideSNavbar">
       <div class="col-md-8 text-left">
-          <h3 translate>Address</h3> {{address.addrStr}}
+          <h3 translate>Address</h3> {{$root.encoding.getEncoding(address.addrStr)}}
           <span class="btn-copy" clip-copy="address.addrStr"></span>
       </div>
       <div class="col-md-4">
-        <span class="txvalues txvalues-primary"><strong translate>Final Balance</strong> {{$root.currency.getConvertion(address.balance) || address.balance + ' BTC' }}</span>
+        <span class="txvalues txvalues-primary"><strong translate>Final Balance</strong> {{$root.currency.getConvertion(address.balance) || address.balance + ' BCH' }}</span>
       </div>
     </div>
     <div class="hide_snavbar">
@@ -17,14 +17,14 @@
       </a>
     </div>
   </div>
-  <h1><span translate>Address</span> <small data-ng-show="address.addrStr">{{$root.currency.getConvertion(address.balance) || address.balance + ' BTC'}}</small></h1>
+  <h1><span translate>Address</span> <small data-ng-show="address.addrStr">{{$root.currency.getConvertion(address.balance) || address.balance + ' BCH'}}</small></h1>
   <div class="text-muted" data-ng-if="!address.addrStr">
     <span translate>Loading Address Information</span> <span class="loader-gif"></span>
   </div>
   <div data-ng-if="address.addrStr">
     <div class="well well-sm ellipsis">
       <strong translate>Address</strong> 
-      <span class="text-muted">{{address.addrStr}}</span>
+      <span class="text-muted">{{$root.encoding.getEncoding(address.addrStr)}}</span>
       <span class="btn-copy" clip-copy="address.addrStr"></span>
     </div>
     <h2 translate>Summary <small>confirmed</small></h2>
@@ -34,15 +34,15 @@
           <tbody>
           <tr>
             <td><strong translate>Total Received</strong></td>
-            <td class="ellipsis text-right">{{$root.currency.getConvertion(address.totalReceived) || address.totalReceived + ' BTC'}}</td>
+            <td class="ellipsis text-right">{{$root.currency.getConvertion(address.totalReceived) || address.totalReceived + ' BCH'}}</td>
           </tr>
           <tr>
             <td><strong translate>Total Sent</strong></td>
-            <td class="ellipsis text-right">{{$root.currency.getConvertion(address.totalSent) || address.totalSent + ' BTC'}}</td>
+            <td class="ellipsis text-right">{{$root.currency.getConvertion(address.totalSent) || address.totalSent + ' BCH'}}</td>
           </tr>
           <tr>
             <td><strong translate>Final Balance</strong></td>
-            <td class="ellipsis text-right">{{$root.currency.getConvertion(address.balance) || address.balance + ' BTC'}}</td>
+            <td class="ellipsis text-right">{{$root.currency.getConvertion(address.balance) || address.balance + ' BCH'}}</td>
           </tr>
           <tr>
             <td><strong translate>No. Transactions</strong></td>
@@ -52,7 +52,7 @@
         </table>
       </div>
       <div class="col-md-2 text-center">
-        <qrcode size="160" data="{{address.addrStr}}"></qrcode>
+        <qrcode size="160" data="{{$root.encoding.getEncoding(address.addrStr)}}"></qrcode>
       </div>
     </div>
     <div data-ng-show="address.unconfirmedTxApperances">

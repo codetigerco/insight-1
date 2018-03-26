@@ -23,42 +23,24 @@ Open a web browser to `http://localhost:3001/insight/`
 
 ## Development
 
-To build Insight UI locally:
+To run Insight UI locally in development mode:
+
+Install bower dependencies:
 
 ```
-$ npm run build
+$ bower install
 ```
 
-A watch task is also available:
+To compile and minify the web application's assets:
 
 ```
-$ npm run watch
+$ grunt compile
 ```
 
-## Changing routePrefix and apiPrefix
-
-By default, the `insightConfig` in `package.json` is:
-
-```json
-  "insightConfig": {
-    "apiPrefix": "insight-api",
-    "routePrefix": "insight"
-  }
-```
-
-To change these routes, first make your changes to `package.json`, for example:
-
-```json
-  "insightConfig": {
-    "apiPrefix": "api",
-    "routePrefix": ""
-  }
-```
-
-Then rebuild the `insight-ui` service:
+There is a convenient Gruntfile.js for automation during editing the code
 
 ```
-$ npm run build
+$ grunt
 ```
 
 ## Multilanguage support

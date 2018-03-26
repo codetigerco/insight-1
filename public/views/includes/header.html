@@ -7,7 +7,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="insight navbar-brand" href=".">insight</a>
+      <a class="insight navbar-brand" href=".">
+		  <img src="img/bdelogo.png" alt="Blockdozer Explorer" />
+	  </a>
     </div>
     <div class="navbar-collapse collapse" collapse="$root.isCollapsed">
       <ul class="nav navbar-nav">
@@ -42,6 +44,30 @@
             glyphicon-qrcode"></span> Scan</a>
       </li>
       <li class="dropdown" data-ng-controller="CurrencyController" data-ng-include="'views/includes/currency.html'"></li>
+      <li class="dropdown" data-ng-include="'views/includes/links.html'"></li>
+      <li class="dropdown" data-ng-controller="EncodingController" data-ng-include="'views/includes/encoding.html'"></li>
+      <li class="dropdown">
+		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+			<i class="glyphicon glyphicon-align-justify"></i>
+		</a>
+		<ul class="dropdown-menu">
+			<li class="has_sub">
+				<a href="#" translate>Language</a>
+				<ul ng-show="availableLanguages.0">
+					<li ng-repeat="l in availableLanguages"><a href="#"
+							ng-click="setLanguage(l.isoCode)"
+							ng-class="{'selected': defaultLanguage == l.isoCode}"
+							>
+							{{l.name}}
+					</a></li>
+				</ul>
+			</li>
+			<li><a href="contact_us" translate>Contact Us</a></li>
+			<li><a href="messages/verify" translate>Verify Message</a></li>
+			<li><a href="tx/send" translate>Broadcast Transaction</a></li>
+			<li><a href="api" translate>API</a></li>
+		</ul>
+      </li>
       </ul>
     </div>
   </div>

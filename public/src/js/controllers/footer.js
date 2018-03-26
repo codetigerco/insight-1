@@ -3,7 +3,7 @@
 angular.module('insight.system').controller('FooterController',
   function($scope, $route, $templateCache, gettextCatalog, amMoment,  Version) {
 
-    $scope.defaultLanguage = defaultLanguage;
+    //$scope.defaultLanguage = defaultLanguage;
 
     var _getVersion = function() {
       Version.get({},
@@ -14,7 +14,7 @@ angular.module('insight.system').controller('FooterController',
 
     $scope.version = _getVersion();
 
-    $scope.availableLanguages = [{
+    /*$scope.availableLanguages = [{
       name: 'Deutsch',
       isoCode: 'de_DE',
     }, {
@@ -35,6 +35,6 @@ angular.module('insight.system').controller('FooterController',
       var currentPageTemplate = $route.current.templateUrl;
       $templateCache.remove(currentPageTemplate);
       $route.reload();
-    };
+    };*/
 
   });
