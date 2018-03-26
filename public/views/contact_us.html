@@ -1,6 +1,89 @@
 <div data-ng-include src="'views/includes/connection.html'"></div>
 <div class="feedback_page">
-    <div class="contact_form_wrapper">
+	<div class="row">
+<style>
+.transition, p, ul li i:before, ul li i:after {transition:all 0.25s ease-in-out;}
+.flipIn, h1, ul li {animation:flipdown 0.5s ease both;}
+.no-select, h2 {-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+.faq_list h2 {letter-spacing:1px;margin:0;cursor:pointer;font-size:18px;padding:10px 20px 10px 10px;background-color:#ffecd6;border-radius:4px;}
+.faq_list p {font-size:14px;line-height:22px;position:relative;overflow:hidden;max-height:800px;opacity:1;transform:translate(0, 0);margin-top:14px;z-index:2;}
+ul.faq_list {list-style:none;perspective:900;padding:0;margin:0;}
+ul.faq_list li {position:relative;padding:0;margin:0;padding-bottom:4px;padding-top:14px;border-bottom:1px solid #e6e6e6;}
+ul.faq_list li:nth-of-type(1) {animation-delay:0.5s;}ul.faq_list li:nth-of-type(2) {animation-delay:0.75s;}
+ul.faq_list li:nth-of-type(3) {animation-delay:1s;}
+ul.faq_list li:last-of-type {padding-bottom:0;}
+ul.faq_list li i {position:absolute;transform:translate(-6px, 0);margin-top:14px;right:10px;}
+ul.faq_list li i:before, ul.faq_list li i:after {content:"";position:absolute;background-color:#f7931a;width:3px;height:9px;}
+ul.faq_list li i:before {transform:translate(-2px, 0) rotate(45deg);}
+ul.faq_list li i:after {transform:translate(2px, 0) rotate(-45deg);}
+ul.faq_list li input[type=checkbox] {position:absolute;cursor:pointer;width:100%;height:100%;z-index:1;opacity:0;margin:0;}
+ul.faq_list li input[type=checkbox]:checked ~ p {margin-top:0;max-height:0;opacity:0;transform:translate(0, 50%);}
+ul.faq_list li input[type=checkbox]:checked ~ i:before {transform:translate(2px, 0) rotate(45deg);}
+ul.faq_list li input[type=checkbox]:checked ~ i:after {transform:translate(-2px, 0) rotate(-45deg);}
+@keyframes flipdown {
+0% {opacity:0;transform-origin:top center;transform:rotateX(-90deg);}
+5% {opacity:1;}
+80% {transform:rotateX(8deg);}
+83% {transform:rotateX(6deg);}
+92% {transform:rotateX(-3deg);}
+100% {transform-origin:top center;transform:rotateX(0deg);}
+}
+</style>
+		<div class="faq_wrapper col-xs-12 col-md-8">
+			<div class="page-header">
+				<h1 translate=""><span class="ng-scope">FAQ</span></h1>
+			</div>
+			<ul class="faq_list">
+				<li>
+					<input type="checkbox" checked>
+					<i></i>
+					<h2>What is Blockdozer?</h2>
+					<p>Blockdozer is a Bitcoin and Bitcoin Cash explorer. It allows you to visualize the blockchain by providing information about its components (blocks / transactions / addresses) as well as verify in a fast and reliable way the status of any transaction.</p>
+				</li>
+				<li>
+					<input type="checkbox" checked>
+					<i></i>
+					<h2>Why has my transaction not been completed?</h2>
+					<p>Blockdozer does not intervene in transactions, it can only show the transactions and their confirmation status. If the incomplete transaction was sent to a wallet belonging to an exchange, we recommend you contact their customer support</p>
+				</li>
+				<li>
+					<input type="checkbox" checked>
+					<i></i>
+					<h2>How can you help me to make my transaction?</h2>
+					<p>Blockdozer does not intervene in the processing of transactions, but you can use our service to broadcast new transactions into the network (see <a href="api">our API details</a>)</p>
+				</li>
+				<li>
+					<input type="checkbox" checked>
+					<i></i>
+					<h2>How long does it take to complete a transaction?</h2>
+					<p>Roughly every ten minutes, a new block is created and added to the blockchain through the mining process. This block verifies and records any new transactions. The transactions are then said to have been confirmed by the Bitcoin network. Once that block is created and the new transaction is verified and included in that block, the transaction will have one confirmation.<br>
+It is common for six confirmations to be required which takes about an hour.</p>
+				</li>
+				<li>
+					<input type="checkbox" checked>
+					<i></i>
+					<h2>What is the difference between a Legacy address and a CashAddr in Bitcoin Cash?</h2>
+					<p>Bitcoin Cash developers have proposed a new format for addresses to help differentiate between bitcoin and Bitcoin Cash addresses, called CashAddr. This updated format only changes how your Bitcoin Cash addresses are displayed, not the underlying private and public keys. Having a different address format for each will help you distinguish which currency you’re transacting with, allowing you to use BTC and BCH more easily.</p>
+				</li>
+				<li>
+					<input type="checkbox" checked>
+					<i></i>
+					<h2>What happens if I accidentally send Bitcoin to a Bitcoin Cash account or vice versa?</h2>
+					<p>Blockdozer is only a blockchain explorer and cannot help you recover these funds. We suggest you search on user forums (reddit for example is good starting point) to see what alternatives are there for your particular case. If you used an exchange for the transaction, contact their customer support service ASAP.</p>
+				</li>
+			</ul>
+			<br>
+			<p>
+				<b>If you want to find out more  about Bitcoin Cash</b><br>
+				Go to <a href="https://www.bitcoincash.org/#faq" target="_blank">https://www.bitcoincash.org/#faq</a>
+				<br>
+				<b>otherwise for Bitcoin,</b><br>
+				Go to <a href="https://bitcoin.org/en/faq" target="_blank">https://bitcoin.org/en/faq </a>
+			</p>
+		</div>
+	
+		<div class="contact_form_wrapper col-xs-12 col-md-4">
+	
         <h2 translate=""><span class="ng-scope">Contact Us</span></h2>
     <script src="https://cdn.jotfor.ms/static/prototype.forms.js" type="text/javascript"></script>
     <script src="https://cdn.jotfor.ms/static/jotform.forms.js?3.3.4472" type="text/javascript"></script>
@@ -43,7 +126,7 @@
 
     <style type="text/css" id="form-designer-style">
         /* Injected CSS Code */
-        .form-label.form-label-auto { display: block; float: none; text-align: left; width: inherit; } /*__INSPECT_SEPERATOR__*/
+        .form-label.form-label-auto { display:block; float:none; text-align:left; width:inherit; } /*__INSPECT_SEPERATOR__*/
         /* Injected CSS Code */
     </style>
 
@@ -54,8 +137,6 @@
     background:#f6f6f6;
     border-radius:5px;
     padding:14px;
-    width:400px;
-    margin:15px auto 0 auto;
 }
 .jotform-form {
     width:100%;
@@ -109,7 +190,7 @@
     height:34px;
     line-height:34px;
     color:#fff;
-    background: #f7931a;
+    background:#f7931a;
     opacity:1;
     border-radius:3px;
     border:none;
@@ -117,9 +198,9 @@
     margin:0;
     padding:0 15px;
     cursor:pointer;
-    font-family: 'Open Sans', sans-serif;
+    font-family:'Open Sans', sans-serif;
     font-weight:400;
-    text-transform: uppercase;
+    text-transform:uppercase;
 }
 .form-all .qq-upload-button:hover, .form-all .form-submit-button:hover, .form-all .form-submit-reset:hover, .form-all .form-submit-print:hover {
     opacity:0.8;
@@ -197,7 +278,7 @@
         <div class="formFooter-heightMask">
         </div>
         <div class="formFooter">
-            <a href="https://www.jotform.com/?utm_source=formfooter&utm_medium=banner&utm_term=80304048182348&utm_content=jotform_logo&utm_campaign=powered_by_jotform_signup_hp" target="_blank" class="formFooter-logoLink"><img class="formFooter-logo" src="https://cdn.jotfor.ms/assets/img/logo/logo-new@1x.png" alt="" style="height: 44px;"></a>
+            <a href="https://www.jotform.com/?utm_source=formfooter&utm_medium=banner&utm_term=80304048182348&utm_content=jotform_logo&utm_campaign=powered_by_jotform_signup_hp" target="_blank" class="formFooter-logoLink"><img class="formFooter-logo" src="https://cdn.jotfor.ms/assets/img/logo/logo-new@1x.png" alt="" style="height:44px;"></a>
             <div class="formFooter-rightSide">
       <span class="formFooter-text">
         Now create your own JotForm - It's free!
@@ -207,5 +288,6 @@
         </div>
     </form>
     <script type="text/javascript">JotForm.ownerView=true;</script><script type="text/javascript">JotForm.forwardToEu=true;</script>
-    </div>
+		</div>
+	</div>
 </div>
